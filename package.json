@@ -1,27 +1,27 @@
 {
-  "name": "riot-cell",
-  "version": "0.2.1",
-  "description": "",
+  "name": "cell2",
+  "version": "0.1.0",
+  "description": "Reactive Spreadsheet Cell Programming - Observable Data",
   "author": "Brian Takita <brian.takita@gmail.com>",
   "contributors": [],
   "scripts": {
   },
-  "main": "./riot-cell.js",
+  "main": "./Cell.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/btakita/riot-cell"
+    "url": "https://github.com/btakita/cell2"
   },
   "bugs": {
-    "url": "https://github.com/btakita/riot-cell/issues"
+    "url": "https://github.com/btakita/cell2/issues"
   },
   "keywords": [
-    "riotjs",
-    "riot-cell",
+    "cell",
     "observers",
-    "signals"
+    "reactive",
+    "signals",
+    "spreadsheet"
   ],
   "dependencies": {
-    "riot": "*"
   },
   "devDependencies": {
   },

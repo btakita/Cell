@@ -1,12 +1,16 @@
-var observable;
-if (typeof riot !== 'undefined') {
-  observable = riot.observable;
-} else {
-  observable = require('riot').observable;
+function Cell(params) {
+  return init(params);
 }
-module.exports = function(params) {
-  var params2 = params || {}
-    , writable = params2.writable != null ? params2.writable : true
+Cell.assign = function() {
+  var args = [Cell];
+  Object.assign.apply(Object, args.concat.apply(args, arguments));
+  return Cell;
+};
+module.exports = Cell;
+function init(params) {
+  var params2 = Object.assign({}, env, params)
+    , observable = params2.observable
+    , writable = params2.writable == null ? true : params2.writable
     ;
   function cell(value2, params3) {
     var value = cell.value
@@ -55,4 +59,4 @@ module.exports = function(params) {
     };
   }
   return cell;
-};
+}

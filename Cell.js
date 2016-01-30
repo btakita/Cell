@@ -5,22 +5,8 @@ function Cell(params) {
     ;
   if (!observable) throw('Cell observable not defined');
   observable(cell);
-  cell.send = function(cb) {
-    var value = cell.value;
-    if (typeof cb === 'string') {
-      var value2 = value && value[cb];
-      if (typeof value2 === 'function') {
-        value2.apply(value, Array.prototype.slice.call(arguments, 1));
-      } else {
-        return value2;
-      }
-    } else if (typeof cb === 'function') {
-      cb(value);
-      return cell;
-    } else {
-      return value;
-    }
-  };
+  cell.query = query;
+  cell.send = query;
   return cell;
   function cell(value2, params3) {
     var value = cell.value
@@ -39,6 +25,22 @@ function Cell(params) {
       } else {
         throw 'cell is not writable';
       }
+    } else {
+      return value;
+    }
+  }
+  function query(cb) {
+    var value = cell.value;
+    if (typeof cb === 'string') {
+      var value2 = value && value[cb];
+      if (typeof value2 === 'function') {
+        value2.apply(value, Array.prototype.slice.call(arguments, 1));
+      } else {
+        return value2;
+      }
+    } else if (typeof cb === 'function') {
+      cb(value);
+      return cell;
     } else {
       return value;
     }

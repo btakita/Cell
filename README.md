@@ -6,7 +6,7 @@ cell programming (aka observers, signals/slots, computed properties)
 ~~~javascript
 var observable = require('riot').observable // or require('cell2/observable')
   , Cell = require('cell2').assign({observable: observable})
-  , cat = Cell()('Fluffy').send(iLoveCat).on('change', iLoveCat)
+  , cat = Cell()('Fluffy').query(iLoveCat).on('change', iLoveCat)
   ;
 cat('Pickles');
 function iLoveCat(cat2) {

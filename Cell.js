@@ -5,8 +5,8 @@ function Cell(params) {
     ;
   if (!observable) throw('Cell observable not defined');
   observable(cell);
-  cell.query = query;
-  cell.send = query;
+  cell.get = get;
+  cell.send = get;
   return cell;
   function cell(value2, params3) {
     var value = cell.value
@@ -29,7 +29,7 @@ function Cell(params) {
       return value;
     }
   }
-  function query(cb) {
+  function get(cb) {
     var value = cell.value;
     if (typeof cb === 'string') {
       var value2 = value && value[cb];
